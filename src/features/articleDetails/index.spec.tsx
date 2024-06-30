@@ -1,13 +1,13 @@
-import React from "react";
-import { render } from "@testing-library/react";
-import configureStore from "redux-mock-store";
-import { MemoryRouter, Route, Routes } from "react-router-dom";
 import "@testing-library/jest-dom";
-import ArticleDetails from ".";
-import { Article } from "../../interfaces";
-import { mockSingleArticle } from "../../../public/mock/test.mock";
-import { RootState } from "../../redux/store";
+import { render } from "@testing-library/react";
+import React from "react";
 import { Provider } from "react-redux";
+import { MemoryRouter, Route, Routes } from "react-router-dom";
+import configureStore from "redux-mock-store";
+import ArticleDetails from ".";
+import { mockSingleArticle } from "../../../public/mock/test.mock";
+import { Article } from "../../interfaces";
+import { RootState } from "../../redux/store";
 
 const mockStore = configureStore([]);
 
@@ -23,8 +23,11 @@ jest.mock("react-router-dom", () => ({
 }));
 
 jest.mock("../../redux/articlesSlice", () => ({
-  selectArticleById: (id: number) => (state: RootState) =>
-    state.articles.articles.find((article: Article) => article.id === id),
+  selectArticleById: jest
+    .fn()
+    .mockImplementation((state: RootState) =>
+      state.articles.articles.find((article: Article) => article.id === 1)
+    ),
 }));
 
 describe("ArticleDetails Component", () => {
@@ -42,7 +45,7 @@ describe("ArticleDetails Component", () => {
             <Route path="/:articleId" element={<ArticleDetails />} />
           </Routes>
         </MemoryRouter>
-      </Provider>,
+      </Provider>
     );
 
     expect(getByText("Test Article 1")).toBeInTheDocument();
@@ -50,21 +53,21 @@ describe("ArticleDetails Component", () => {
     expect(getByText("2024-06-30")).toBeInTheDocument();
     expect(getByAltText("An image for test article 1.")).toBeInTheDocument();
     expect(
-      getByText("This is the abstract for test article 1."),
+      getByText("This is the abstract for test article 1.")
     ).toBeInTheDocument();
     expect(getByText("Source: NY Times")).toBeInTheDocument();
     expect(getByText("Section: Technology")).toBeInTheDocument();
     expect(getByText("Keywords: technology, test")).toBeInTheDocument();
     expect(getByText("Read Full Article")).toHaveAttribute(
       "href",
-      "http://example.com/article1",
+      "http://example.com/article1"
     );
   });
 
   it("renders an error message when the article is not found", () => {
     const emptyState = {
       ...mockState,
-      articles: { articles: [], status: "succeeded", error: null },
+      articles: { articles: [] },
     };
     store = mockStore(emptyState);
 
@@ -75,7 +78,7 @@ describe("ArticleDetails Component", () => {
             <Route path="/:articleId" element={<ArticleDetails />} />
           </Routes>
         </MemoryRouter>
-      </Provider>,
+      </Provider>
     );
 
     expect(getByText("Article is not found.")).toBeInTheDocument();
