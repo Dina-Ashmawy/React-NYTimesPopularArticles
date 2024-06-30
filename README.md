@@ -20,7 +20,7 @@ To access the NY Times API, you'll need to sign up for an API key at [NY Times D
 - **Navigation:** Clicking on an article in the List Page navigates to a Details Page showing comprehensive information about the article.
 - **Testing:** Includes unit tests using Jest and React Testing Library, as well as UI tests with Cypress for comprehensive coverage.
 - **Code Quality:** Emphasizes clean, reusable JavaScript code adhering to modern best practices.
-- **Tooling:** Provides npm or yarn scripts for building, linting, running tests, and generating coverage reports.
+- **Tooling:** Provides npm scripts for building, linting, running tests, and generating coverage reports.
 
 ## Tech Stack
 
