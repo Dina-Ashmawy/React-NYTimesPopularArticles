@@ -1,23 +1,23 @@
-import React from "react";
+import "@testing-library/jest-dom";
 import { render } from "@testing-library/react";
-import { BrowserRouter as Router } from "react-router-dom";
+import React from "react";
+import { MemoryRouter } from "react-router-dom";
 import ArticleCard from ".";
 import { mockSingleArticle } from "../../../public/mock/test.mock";
-import "@testing-library/jest-dom";
 
 describe("ArticleCard Component", () => {
   it("renders article card with correct details", () => {
     const { queryByText, getByAltText } = render(
-      <Router>
+      <MemoryRouter>
         <ArticleCard article={mockSingleArticle} />
-      </Router>,
+      </MemoryRouter>
     );
 
     const articleTitle = queryByText(mockSingleArticle.title);
     expect(articleTitle).toBeInTheDocument();
 
     const publishedDate = queryByText(
-      `Published Date: ${mockSingleArticle.published_date}`,
+      `Published Date: ${mockSingleArticle.published_date}`
     );
     expect(publishedDate).toBeInTheDocument();
 
@@ -26,7 +26,7 @@ describe("ArticleCard Component", () => {
 
     const thumbnail = getByAltText(mockSingleArticle.title) as HTMLImageElement;
     expect(thumbnail.src).toBe(
-      mockSingleArticle.media[0]["media-metadata"][0].url,
+      mockSingleArticle.media[0]["media-metadata"][0].url
     );
   });
 });

@@ -11,9 +11,10 @@
     "noFallthroughCasesInSwitch": true,
     "isolatedModules": true,
     "jsx": "react",
-    "types": ["node"]
+    "types": ["node", "cypress", "@types/node"]
+
 
   },
-  "include": ["src/**/*", "jest.setup.ts"],
+  "include": ["src/**/*", "cypress/**/*.ts", "cypress/e2e/articleCard.cy.tsx", "cypress/e2e/listPage.cy.tsx"],
   "exclude": ["node_modules"]
 }

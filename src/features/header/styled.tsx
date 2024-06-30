@@ -1,5 +1,5 @@
-import styled from "styled-components";
 import { Link } from "react-router-dom";
+import styled from "styled-components";
 import {
   Breakpoints,
   DarkPurple,
@@ -28,7 +28,7 @@ export const StyledContent = styled.div`
 `;
 
 export const StyledAppName = styled.span`
-  font-size: 24px;
+  font-size: 16px;
   font-weight: bold;
   color: ${DarkPurple};
   font-family: ${DefaultFontFamily};
