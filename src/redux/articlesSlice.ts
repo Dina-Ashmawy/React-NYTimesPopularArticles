@@ -1,4 +1,4 @@
-import { createSlice, createSelector } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 import { Article } from "../interfaces";
 import { RootState } from "./store";
 
@@ -24,9 +24,5 @@ export const { setArticles } = articlesSlice.actions;
 export default articlesSlice.reducer;
 
 export const selectAllArticles = (state: RootState) => state.articles.articles;
-export const selectArticleById = (articleId: number) =>
-  createSelector(
-    (state: RootState) => state.articles.articles,
-    (articles: Article[]) =>
-      articles.find((article) => article.id === articleId),
-  );
+export const selectArticleById = (state: RootState, articleId: number) =>
+  state.articles.articles.find((article) => article.id === articleId);

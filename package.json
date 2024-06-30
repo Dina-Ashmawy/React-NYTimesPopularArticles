@@ -21,6 +21,7 @@
     "styled-components": "^5.3.6"
   },
   "devDependencies": {
+    "@cypress/react18": "^2.0.1",
     "@cypress/vite-dev-server": "^5.0.5",
     "@howiefh/ant-path-matcher": "^0.0.4",
     "@reduxjs/toolkit": "^1.9.1",
@@ -38,6 +39,7 @@
     "@vitejs/plugin-react": "^3.1.0",
     "cypress": "^12.11.0",
     "cypress-vite": "^1.4.2",
+    "cypress-wait-until": "^3.0.1",
     "eslint": "^8.47.0",
     "eslint-config-prettier": "^9.0.0",
     "eslint-config-react-app": "^7.0.1",

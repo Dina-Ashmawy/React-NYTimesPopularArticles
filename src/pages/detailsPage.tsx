@@ -1,8 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import ArticleDetails from "../features/articleDetails";
 
 const DetailsPage: React.FC = () => {
-  return <ArticleDetails />;
+  return (
+    <div id="details-page-root">
+      <ArticleDetails />
+    </div>
+  );
 };
 
 export default DetailsPage;

@@ -24,10 +24,10 @@ const ListPage: React.FC = () => {
     );
 
   return (
-    <>
+    <div id="list-page-root">
       <PeriodSelector period={period} setPeriod={setPeriod} />
       <ArticlesList articles={articles} />
-    </>
+    </div>
   );
 };
 

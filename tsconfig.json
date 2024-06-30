@@ -15,6 +15,6 @@
 
 
   },
-  "include": ["src/**/*", "cypress/**/*.ts", "cypress/e2e/articleCard.cy.tsx", "cypress/e2e/listPage.cy.tsx"],
+  "include": ["src/**/*", "cypress/**/*.ts", "cypress/**/*.tsx"],
   "exclude": ["node_modules"]
 }
