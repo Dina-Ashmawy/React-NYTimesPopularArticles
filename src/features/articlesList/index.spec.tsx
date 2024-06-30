@@ -1,17 +1,16 @@
-import React from "react";
-import { render } from "@testing-library/react";
-import ArticlesList from ".";
-import { Article } from "../../interfaces";
 import "@testing-library/jest-dom";
-import { mockArticles } from "../../../public/mock/test.mock";
+import { render } from "@testing-library/react";
+import React from "react";
 import { MemoryRouter } from "react-router-dom";
+import ArticlesList from ".";
+import { mockArticles } from "../../../public/mock/test.mock";
 
 describe("ArticlesList Component", () => {
   it("renders a list of articles correctly", () => {
     const { getByText } = render(
       <MemoryRouter>
         <ArticlesList articles={mockArticles} />;
-      </MemoryRouter>,
+      </MemoryRouter>
     );
 
     expect(getByText("Test Article 1")).toBeInTheDocument();
@@ -22,7 +21,7 @@ describe("ArticlesList Component", () => {
     const { container } = render(
       <MemoryRouter>
         <ArticlesList articles={[]} />
-      </MemoryRouter>,
+      </MemoryRouter>
     );
     expect(container.firstChild).toBeEmptyDOMElement();
   });

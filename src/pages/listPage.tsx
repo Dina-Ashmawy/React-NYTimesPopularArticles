@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
-import PeriodSelector from "../features/periodSelector";
+import { useDispatch } from "react-redux";
 import ArticlesList from "../features/articlesList";
-import { useGetMostViewedQuery } from "../services/nyTimesApi";
+import PeriodSelector from "../features/periodSelector";
 import { StyledErrorMessage, StyledLoadingMessage } from "../globalStyles";
 import { setArticles } from "../redux/articlesSlice";
-import { useDispatch } from "react-redux";
+import { useGetMostViewedQuery } from "../services/nyTimesApi";
 
 const ListPage: React.FC = () => {
   const [period, setPeriod] = useState<number>(1);
@@ -15,7 +15,7 @@ const ListPage: React.FC = () => {
     if (articles) {
       dispatch(setArticles(articles));
     }
-  }, [articles]);
+  }, [articles, dispatch]);
 
   if (isLoading) return <StyledLoadingMessage>Loading...</StyledLoadingMessage>;
   if (error)

@@ -1,11 +1,11 @@
-import React from "react";
-import { render, waitFor } from "@testing-library/react";
 import "@testing-library/jest-dom";
+import { render, waitFor } from "@testing-library/react";
+import React from "react";
 import { Provider } from "react-redux";
-import configureStore from "redux-mock-store";
-import ListPage from "./listPage";
-import { useGetMostViewedQuery } from "../services/nyTimesApi";
 import { BrowserRouter } from "react-router-dom";
+import configureStore from "redux-mock-store";
+import { useGetMostViewedQuery } from "../services/nyTimesApi";
+import ListPage from "./listPage";
 
 jest.mock("../services/nyTimesApi");
 
@@ -30,10 +30,10 @@ describe("ListPage Component", () => {
       isLoading: true,
     });
 
-    let { getByText } = render(
+    const { getByText } = render(
       <Provider store={store}>
         <ListPage />
-      </Provider>,
+      </Provider>
     );
 
     await (async () => {
@@ -51,7 +51,7 @@ describe("ListPage Component", () => {
     const { getByText } = render(
       <Provider store={store}>
         <ListPage />
-      </Provider>,
+      </Provider>
     );
     await (async () => {
       expect(getByText("There is Error in fetching data")).toBeInTheDocument();
@@ -72,7 +72,7 @@ describe("ListPage Component", () => {
         <BrowserRouter>
           <ListPage />
         </BrowserRouter>
-      </Provider>,
+      </Provider>
     );
 
     await waitFor(() => {

@@ -1,10 +1,9 @@
-import React from "react";
-import { render, screen } from "@testing-library/react";
-import { MemoryRouter } from "react-router-dom";
-import { Provider } from "react-redux";
-import { store } from "./redux/store";
-import App from "./App";
 import "@testing-library/jest-dom";
+import { render, screen } from "@testing-library/react";
+import React from "react";
+import { Provider } from "react-redux";
+import App from "./App";
+import { store } from "./redux/store";
 
 jest.mock("./features/header", () => () => <div data-testid="mock-header" />);
 
@@ -13,7 +12,7 @@ describe("App component", () => {
     render(
       <Provider store={store}>
         <App />
-      </Provider>,
+      </Provider>
     );
 
     expect(screen.getByTestId("mock-header")).toBeInTheDocument();
