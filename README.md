@@ -56,4 +56,4 @@ Follow these instructions to clone, install dependencies, configure the project,
 
 I have included screenshots of the application to help you understand its functionality and appearance. You can find these screenshots in the following directory:
 
-[app/evidence](./screenshots)
+[app/evidence](./evidence)
